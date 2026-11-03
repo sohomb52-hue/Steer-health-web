@@ -16,6 +16,11 @@ export function HeartEnvironment() {
 
   return (
     <div className="heart-environment" aria-hidden="true">
+      <img
+        className="heart-reference-image"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-11-03%20111112-ChjDLVcpHekLc1bhcZHSlhhIonme7G.png"
+        alt=""
+      />
       <div className="heart-scene" style={{ transform: `rotateX(${tilt.y}deg) rotateY(${tilt.x}deg)` }}>
         <div className="heart-core" />
         <div className="heart-vessel heart-vessel-one" />
