@@ -61,6 +61,7 @@ import { AiMediaStudio } from './components/AiMediaStudio';
 import { EvidenceRadar } from './components/EvidenceRadar';
 import { ContentBrief } from './types';
 import { propagateClaimChange } from './utils/impactAnalysis';
+import { HeartEnvironment } from './components/HeartEnvironment';
 
 export default function App() {
   const { user, idToken } = useAuth();
@@ -915,6 +916,7 @@ export default function App() {
 
   return (
     <div className="dark-shell min-h-screen bg-[#050505] text-[#F5F7F5] flex">
+      <HeartEnvironment />
       {/* 01. LEFT: Persistent Desktop Navigation Rail (228px) */}
       <NavigationSidebar
         currentTab={currentTab}
