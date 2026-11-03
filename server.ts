@@ -2476,11 +2476,20 @@ async function startServer() {
         // The hosted preview proxy does not expose Vite's HMR socket. Disable
         // the client to prevent repeated "WebSocket closed without opened"
         // errors while keeping the middleware-backed preview stable.
-        hmr: false,
-      },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
+  hmr: false,
+  },
+  appType: 'spa',
+  });
+  // The hosted preview proxy cannot keep Vite's websocket open. Vite still
+  // injects its client in middleware mode, so serve a no-op client explicitly
+  // to prevent the browser from attempting the unavailable HMR socket.
+  app.get('/@vite/client', (_req, res) => {
+    res.type('application/javascript').send('');
+  });
+  app.get('/@vite/env', (_req, res) => {
+    res.type('application/javascript').send('');
+  });
+  app.use(vite.middlewares);
   }
 
   const port = PORT;
