@@ -241,6 +241,28 @@
 }
 
 /* Editorial command-center redesign */
+.navigation-sidebar {
+  font-family: "Geist", system-ui, sans-serif;
+}
+.navigation-sidebar:not(.sidebar-menu-open) { width: 230px; }
+.navigation-sidebar:not(.sidebar-menu-open) .sidebar-content { display: none; }
+.navigation-sidebar:not(.sidebar-menu-open) .h-14 { padding-inline: 12px; justify-content: center; }
+.navigation-sidebar:not(.sidebar-menu-open) .h-14 > div:first-child { display: none; }
+.navigation-sidebar:not(.sidebar-menu-open) .h-14 > div:last-child { margin: 0; }
+.navigation-sidebar.sidebar-menu-open { width: 280px; box-shadow: 18px 0 40px rgba(53,29,29,.24); }
+.navigation-sidebar .sidebar-content, .navigation-sidebar nav button, .navigation-sidebar select { font-size: .78rem; }
+.navigation-sidebar nav button { min-height: 34px; font-weight: 650; letter-spacing: -.01em; }
+.navigation-sidebar .sidebar-content { animation: sidebar-reveal 180ms ease-out both; }
+.navigation-sidebar .text-\[\#351D1D\] { color: #fff7ef !important; }
+.navigation-sidebar .text-\[\#786A61\] { color: #f1d9c7 !important; }
+.navigation-sidebar .text-\[\#B58777\] { color: #f0a77f !important; }
+.navigation-sidebar .text-\[\#661414\] { color: #fff7ef !important; }
+.navigation-sidebar .border-\[\#E6CBBD\] { border-color: rgba(255,247,239,.32) !important; }
+.navigation-sidebar nav button:not(.bg-\[\#F4EBE1\]) { color: #fff7ef; }
+.navigation-sidebar nav button:not(.bg-\[\#F4EBE1\]):hover { background: rgba(255,247,239,.14); }
+.navigation-sidebar nav button.bg-\[\#F4EBE1\] { color: #351d1d; }
+.navigation-sidebar select { color: #fff7ef; background: rgba(255,247,239,.12); }
+@keyframes sidebar-reveal { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
 .dark-shell {
   background: #351D1D !important;
 }
