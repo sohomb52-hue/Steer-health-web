@@ -252,7 +252,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
         </div>
 
         {/* Active Source Card */}
-        <div className="sidebar-content px-3.5 py-3 border-b border-[#E6CBBD] bg-[#FFFDF9]/70">
+        <div hidden={!isMenuOpen} className="sidebar-content px-3.5 py-3 border-b border-[#E6CBBD] bg-[#FFFDF9]/70">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[10px] font-mono uppercase tracking-wider text-[#786A61] font-semibold">
               ACTIVE SOURCE
@@ -339,7 +339,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
       </div>
 
       {/* Footer: Database Sync Status & Reset Demo */}
-      <div className="sidebar-content p-3 border-t border-[#E6CBBD] bg-[#FFFDF9] space-y-2">
+      <div hidden={!isMenuOpen} className="sidebar-content p-3 border-t border-[#E6CBBD] bg-[#FFFDF9] space-y-2">
         {/* Cloud SQL Connection Status */}
         <div className="flex items-center justify-between text-[10px] font-mono text-[#786A61]">
           <div className="flex items-center gap-1.5">
