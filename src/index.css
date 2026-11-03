@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+:root {
+  --steer-void: #050807;
+  --steer-surface: #0a100d;
+  --steer-panel: rgba(13, 25, 19, 0.78);
+  --steer-panel-strong: #101c16;
+  --steer-border: rgba(112, 212, 151, 0.18);
+  --steer-border-strong: rgba(0, 230, 118, 0.42);
+  --steer-green: #00e676;
+  --steer-neon: #39ff88;
+  --steer-forest: #123d2b;
+  --steer-text: #f5fff8;
+  --steer-muted: #a1b5a9;
+}
+
 @layer base {
   :root {
     --color-cream: #F5EBDF;
@@ -23,8 +37,8 @@
   }
 
   body {
-    background-color: var(--color-cream);
-    color: var(--color-ink);
+    background-color: var(--steer-void);
+    color: var(--steer-text);
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -46,9 +60,38 @@
 }
 
 ::selection {
-  background-color: #E6CBBD;
-  color: #351D1D;
+  background-color: rgba(0, 230, 118, 0.28);
+  color: var(--steer-text);
 }
+
+#root {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 78% 6%, rgba(0, 230, 118, 0.09), transparent 26rem),
+    radial-gradient(circle at 12% 42%, rgba(18, 61, 43, 0.2), transparent 30rem),
+    var(--steer-void);
+}
+
+/* Futuristic glass surface overrides keep the existing feature components intact. */
+[class*="bg-[#FFFDF9]"], [class*="bg-[#FAF6F0]"], [class*="bg-[#F8F2EB]"], [class*="bg-[#F5EBDF]"], [class*="bg-[#F5EFE6]"] {
+  background-color: var(--steer-panel) !important;
+  color: var(--steer-text) !important;
+  border-color: var(--steer-border) !important;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22), inset 0 1px rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(18px);
+}
+[class*="border-[#E6CBBD]"], [class*="border-[#351D1D]"] { border-color: var(--steer-border) !important; }
+[class*="text-[#351D1D]"], [class*="text-[#442B2B]"], [class*="text-[#391E1D]"], [class*="text-[#786A61]"], [class*="text-[#B58777]"], [class*="text-[#8B6A60]"] { color: var(--steer-muted) !important; }
+[class*="text-[#661414]"], [class*="text-[#C04E2A]"], [class*="text-[#416C49]"] { color: var(--steer-green) !important; }
+[class*="bg-[#661414]"], [class*="bg-[#C04E2A]"] { background: linear-gradient(135deg, #00b85e, #007f45) !important; color: #031109 !important; border-color: rgba(57, 255, 136, 0.38) !important; }
+[class*="bg-[#416C49]"] { background-color: rgba(0, 230, 118, 0.14) !important; }
+button { transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease; }
+button:hover { transform: translateY(-1px); }
+main { perspective: 1200px; }
+main > * { animation: steer-enter 520ms cubic-bezier(.2,.8,.2,1) both; }
+@keyframes steer-enter { from { opacity: 0; transform: translateY(14px) rotateX(1deg); } to { opacity: 1; transform: translateY(0) rotateX(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important; } }
+
 
 ::-webkit-scrollbar {
   width: 6px;
