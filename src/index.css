@@ -2,26 +2,26 @@
 
 @layer base {
   :root {
-    --color-cream: #050505;
-    --color-rust: #86EFAC;
+    --color-cream: #2f6b3f;
+    --color-rust: #FFFFFF;
     --color-maroon: #4D9F58;
     --color-ink: #F5F7F5;
     --color-clay: #A0AAA2;
-    --color-blush: rgba(0,230,118,0.15);
-    --color-softpaper: #0B0D0B;
-    --color-canvas: #050505;
-    --color-paper: #141714;
-    --color-burgundy: #00E676;
-    --color-terracotta: #39FF88;
+    --color-blush: rgba(255,255,255,0.15);
+    --color-softpaper: #275a35;
+    --color-canvas: #2f6b3f;
+    --color-paper: #376f45;
+    --color-burgundy: #FFFFFF;
+    --color-terracotta: #FFFFFF;
     --color-ink-secondary: #A0AAA2;
-    --color-border: rgba(0,230,118,0.15);
+    --color-border: rgba(255,255,255,0.15);
     --color-border-subtle: rgba(255,255,255,0.08);
-    --color-approval: #39FF88;
+    --color-approval: #FFFFFF;
     --color-highlight: #17452C;
   }
 
   body {
-    background-color: #050505;
+    background-color: #2f6b3f;
     color: #F5F7F5;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -33,19 +33,19 @@
   code, pre, .font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; }
 }
 
-.dark-shell { background: #050505 !important; color: #F5F7F5 !important; }
-.dark-shell aside, .dark-shell header { background: rgba(11,13,11,.92) !important; border-color: rgba(0,230,118,.15) !important; backdrop-filter: blur(18px); }
-.dark-shell main { background: radial-gradient(circle at 80% 0%, rgba(0,230,118,.06), transparent 32rem), #050505; }
+.dark-shell { background: #2f6b3f !important; color: #F5F7F5 !important; }
+.dark-shell aside, .dark-shell header { background: rgba(11,13,11,.92) !important; border-color: rgba(255,255,255,.15) !important; backdrop-filter: blur(18px); }
+.dark-shell main { background: radial-gradient(circle at 80% 0%, rgba(255,255,255,.06), transparent 32rem), #2f6b3f; }
 .dark-shell button, .dark-shell select { border-radius: 12px; }
-.dark-shell [class*="bg-[#FFFDF9]"], .dark-shell [class*="bg-[#FAF6F0]"], .dark-shell [class*="bg-[#F8F2EB]"], .dark-shell [class*="bg-[#F5EFE6]"] { background-color: #141714 !important; }
-.dark-shell [class*="border-[#E6CBBD]"], .dark-shell [class*="border-[#F0E2D8]"] { border-color: rgba(0,230,118,.15) !important; }
+.dark-shell [class*="bg-[#FFFDF9]"], .dark-shell [class*="bg-[#FAF6F0]"], .dark-shell [class*="bg-[#F8F2EB]"], .dark-shell [class*="bg-[#F5EFE6]"] { background-color: #376f45 !important; }
+.dark-shell [class*="border-[#E6CBBD]"], .dark-shell [class*="border-[#F0E2D8]"] { border-color: rgba(255,255,255,.15) !important; }
 .dark-shell [class*="text-[#351D1D]"], .dark-shell [class*="text-[#391E1D]"] { color: #F5F7F5 !important; }
 .dark-shell [class*="text-[#786A61]"], .dark-shell [class*="text-[#B58777]"] { color: #A0AAA2 !important; }
-.dark-shell [class*="bg-[#661414]"], .dark-shell [class*="bg-[#C04E2A]"] { background: linear-gradient(135deg,#00E676,#0aa951) !important; color: #031109 !important; }
-.dark-shell [class*="text-[#661414]"], .dark-shell [class*="text-[#C04E2A]"], .dark-shell [class*="text-[#416C49]"] { color: #39FF88 !important; }
+.dark-shell [class*="bg-[#661414]"], .dark-shell [class*="bg-[#C04E2A]"] { background: linear-gradient(135deg,#FFFFFF,#0aa951) !important; color: #031109 !important; }
+.dark-shell [class*="text-[#661414]"], .dark-shell [class*="text-[#C04E2A]"], .dark-shell [class*="text-[#416C49]"] { color: #FFFFFF !important; }
 .dark-shell [class*="rounded-xs"] { border-radius: 12px; }
 .dark-shell .steer-card, .dark-shell .steer-card-interactive { background: rgba(20,23,20,.92); border-color: rgba(134,239,172,.2); box-shadow: 0 16px 34px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.025) inset; transform: scale(.97); animation: widget-float 7s ease-in-out infinite; backdrop-filter: blur(12px); }
-@media (prefers-reduced-motion: no-preference) { .dark-shell .steer-card-interactive:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(0,230,118,.09); } }
+@media (prefers-reduced-motion: no-preference) { .dark-shell .steer-card-interactive:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(255,255,255,.09); } }
 
 .heart-environment {
   position: fixed;
@@ -75,11 +75,11 @@
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.72) 32%, #000 70%);
 }
 .heart-scene { position: absolute; right: 8%; top: 20%; width: 430px; height: 430px; transform-style: preserve-3d; transition: transform .18s ease-out; }
-.heart-core { position: absolute; inset: 92px 88px 82px 86px; border-radius: 48% 52% 46% 54% / 42% 40% 60% 58%; transform: rotate(45deg); background: radial-gradient(circle at 32% 26%, #76ffae 0 3%, #19d86f 9%, #075b36 48%, #031b10 100%); box-shadow: -18px 18px 32px rgba(0,0,0,.48), inset 12px -20px 28px rgba(0,0,0,.42), 0 0 36px rgba(0,230,118,.35); animation: heart-pulse 2.2s ease-in-out infinite; }
+.heart-core { position: absolute; inset: 92px 88px 82px 86px; border-radius: 48% 52% 46% 54% / 42% 40% 60% 58%; transform: rotate(45deg); background: radial-gradient(circle at 32% 26%, #76ffae 0 3%, #19d86f 9%, #075b36 48%, #031b10 100%); box-shadow: -18px 18px 32px rgba(0,0,0,.48), inset 12px -20px 28px rgba(0,0,0,.42), 0 0 36px rgba(255,255,255,.35); animation: heart-pulse 2.2s ease-in-out infinite; }
 .heart-vessel { position: absolute; background: linear-gradient(135deg, #39ff88, #064d2d 65%); border-radius: 999px; box-shadow: 0 0 12px rgba(57,255,136,.36); transform-origin: bottom center; }
 .heart-vessel-one { width: 34px; height: 152px; left: 184px; top: 20px; transform: rotate(28deg); }
 .heart-vessel-two { width: 28px; height: 126px; left: 236px; top: 36px; transform: rotate(-28deg); }
-.heart-glow { position: absolute; inset: 60px; border: 1px solid rgba(57,255,136,.26); border-radius: 50%; box-shadow: 0 0 80px rgba(0,230,118,.22), inset 0 0 40px rgba(0,230,118,.12); }
+.heart-glow { position: absolute; inset: 60px; border: 1px solid rgba(57,255,136,.26); border-radius: 50%; box-shadow: 0 0 80px rgba(255,255,255,.22), inset 0 0 40px rgba(255,255,255,.12); }
 .heart-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .heart-canvas canvas { display: block; width: 100%; height: 100%; }
 .heart-particles { position: absolute; inset: 8% 10%; opacity: .6; background-image: radial-gradient(circle, #39ff88 0 1px, transparent 1.5px); background-size: 72px 88px; animation: particle-drift 14s linear infinite; }
