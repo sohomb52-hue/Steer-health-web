@@ -92,7 +92,76 @@
   .heart-environment { inset: 56px 0 auto auto; width: 100vw; height: 46vh; opacity: .32; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .heart-environment { opacity: .18; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.dark-shell main {
+  position: relative;
+  isolation: isolate;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.dark-shell main::before,
+.dark-shell main::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  border: 1px solid rgba(230, 203, 189, 0.18);
+  border-radius: 999px;
+  transform-style: preserve-3d;
+  animation: ambient-orbit 18s ease-in-out infinite;
+}
+
+.dark-shell main::before {
+  width: 320px;
+  height: 320px;
+  right: 8%;
+  top: 18%;
+  box-shadow: 0 0 0 34px rgba(192, 78, 42, 0.06), 0 0 0 74px rgba(230, 203, 189, 0.035);
+}
+
+.dark-shell main::after {
+  width: 180px;
+  height: 180px;
+  left: 10%;
+  bottom: 12%;
+  animation-delay: -7s;
+  animation-duration: 14s;
+}
+
+.dark-shell .steer-card,
+.dark-shell .steer-card-interactive {
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  box-shadow: 0 18px 36px rgba(27, 12, 10, 0.22), 0 1px 0 rgba(255, 247, 239, 0.22) inset;
+  animation: widget-float-3d 8s ease-in-out infinite;
+}
+
+.dark-shell .steer-card:nth-child(2n) { animation-delay: -2s; }
+.dark-shell .steer-card:nth-child(3n) { animation-delay: -4s; }
+.dark-shell .steer-card-interactive:hover {
+  transform: translateY(-8px) rotateX(1deg) rotateY(-1deg) scale(1.01);
+  box-shadow: 0 26px 48px rgba(27, 12, 10, 0.28);
+}
+
+@keyframes widget-float-3d {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg); }
+  50% { transform: translate3d(0, -6px, 14px) rotateX(0.8deg); }
+}
+
+@keyframes ambient-orbit {
+  0%, 100% { transform: translate3d(0, 0, -80px) rotate(0deg); }
+  50% { transform: translate3d(18px, -24px, 40px) rotate(18deg); }
+}
+
+@supports (animation-timeline: scroll()) {
+  .dark-shell main::before { animation-timeline: scroll(root); animation-range: 0 80%; }
 }
 
 
