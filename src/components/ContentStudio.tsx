@@ -504,7 +504,7 @@ CITATION: ${slide.source_citation || activePaper.journal} · steerclub.com`;
   };
 
   return (
-    <div className="max-w-[1360px] mx-auto p-4 sm:p-6 md:p-8 space-y-6 border border-dashed border-[#f5f7f5] text-[#f5f7f5]">
+    <div className="editorial-studio mx-auto w-full max-w-[1480px] px-4 py-8 sm:px-8 sm:py-10 lg:px-14">
       {/* 01. Desk Header & Toolbar */}
       <div className="bg-[#FFFDF9] border border-[#E6CBBD] p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-xs">
         <div className="space-y-1">

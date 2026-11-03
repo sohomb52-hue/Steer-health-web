@@ -19,7 +19,7 @@ import {
   ChevronDown,
   Sparkles,
   Radio,
-  MoreHorizontal,
+  X,
 } from 'lucide-react';
 
 export type ActiveTab =
@@ -68,7 +68,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
   isOpenMobile = false,
   onCloseMobile,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen] = React.useState(true);
 
   const handleNavClick = (tab: ActiveTab) => {
     onSelectTab(tab);
@@ -216,9 +216,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
 
   return (
     <aside
-      className={`navigation-sidebar fixed inset-y-0 left-0 z-40 w-[230px] bg-[#0B0D0B] border-r border-[rgba(0,230,118,0.15)] flex flex-col justify-between transition-transform duration-300 ease-in-out md:translate-x-0 ${isMenuOpen ? 'sidebar-menu-open' : ''} ${
-        isOpenMobile ? 'translate-x-0 shadow-2xl' : '-translate-x-full md:translate-x-0'
-      }`}
+      className="navigation-sidebar fixed inset-y-0 left-0 z-50 flex w-[min(88vw,360px)] translate-x-0 flex-col justify-between border-r border-[rgba(0,230,118,0.15)] bg-[#0B0D0B] shadow-2xl transition-transform duration-300 ease-out"
     >
       {/* Brand & Workspace Context - Scrollable Navigation */}
       <div className="flex flex-col overflow-y-auto min-h-0 flex-1">
@@ -241,12 +239,12 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
             </span>
             <button
               type="button"
-              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={isMenuOpen}
-              onClick={() => setIsMenuOpen((open) => !open)}
+              aria-label="Close navigation menu"
+              aria-expanded="true"
+              onClick={() => onCloseMobile?.()}
               className="rounded-md border border-[#E6CBBD] bg-[#FAF6F0] p-1 text-[#661414] transition-colors hover:bg-[#E6CBBD]"
             >
-              <MoreHorizontal className="h-3.5 w-3.5" />
+              <X className="h-3.5 w-3.5" />
             </button>
           </div>
         </div>

@@ -916,10 +916,10 @@ export default function App() {
   };
 
   return (
-    <div className="dark-shell min-h-screen bg-[#050505] text-[#F5F7F5] flex">
+    <div className="dark-shell min-h-screen bg-[#050505] text-[#F5F7F5]">
       {isGatewayOpen && <StartGateway onEnter={() => setIsGatewayOpen(false)} />}
-      {/* 01. LEFT: Persistent Desktop Navigation Rail (228px) */}
-      <NavigationSidebar
+      {/* Navigation is intentionally progressive: it lives in a drawer, not the canvas. */}
+      {isMobileSidebarOpen && <NavigationSidebar
         currentTab={currentTab}
         onSelectTab={setCurrentTab}
         activePaper={activePaper}
@@ -933,18 +933,18 @@ export default function App() {
         isOpenMobile={isMobileSidebarOpen}
         onCloseMobile={() => setIsMobileSidebarOpen(false)}
         onOpenAuthModal={() => setIsAuthModalOpen(true)}
-      />
+      />}
 
-      {/* Mobile Sidebar Backdrop Overlay */}
       {isMobileSidebarOpen && (
         <div
           onClick={() => setIsMobileSidebarOpen(false)}
-          className="fixed inset-0 z-30 bg-[#391E1D]/40 md:hidden"
+          className="fixed inset-0 z-40 bg-[#391E1D]/48 backdrop-blur-[2px]"
+          aria-hidden="true"
         />
       )}
 
-      {/* 02. CENTER & RIGHT: Main Workstation Area (offset by 228px on desktop) */}
-      <div className="flex-1 md:ml-[228px] flex flex-col min-h-screen min-w-0">
+      {/* Main workspace occupies the complete viewport. */}
+      <div className="flex min-h-screen min-w-0 flex-col">
         {/* Top Header Bar across canvas */}
         <TopBar
           currentTab={currentTab}

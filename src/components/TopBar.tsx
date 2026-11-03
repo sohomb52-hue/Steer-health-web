@@ -71,13 +71,13 @@ export const TopBar: React.FC<TopBarProps> = ({
 
   return (
     <>
-      <header className="h-16 bg-[#0B0D0B]/90 border-b border-[rgba(0,230,118,0.15)] px-4 sm:px-7 flex items-center justify-between gap-3 shrink-0 sticky top-0 z-30 shadow-lg backdrop-blur-xl">
+      <header className="h-[72px] bg-[#0B0D0B]/90 border-b border-[rgba(0,230,118,0.15)] px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-4 shrink-0 sticky top-0 z-30 shadow-lg backdrop-blur-xl">
         {/* Left: Mobile Menu Toggle + Breadcrumbs + Active Paper Context */}
         <div className="flex items-center gap-3 min-w-0">
           {/* Mobile hamburger toggle */}
           <button
             onClick={onToggleSidebarMobile}
-            className="md:hidden p-1.5 text-[#351D1D] hover:text-[#661414] hover:bg-[#F8F2EB] rounded-xs border border-[#E6CBBD] transition-colors cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center text-[#351D1D] hover:text-[#661414] hover:bg-[#F8F2EB] rounded-full border border-[#E6CBBD] transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             <Menu className="w-4 h-4" />
