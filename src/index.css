@@ -230,3 +230,13 @@
   border-color: #B58777;
 }
 
+.dark-shell {
+  background: linear-gradient(135deg, #351D1D 0%, #661414 52%, #C04E2A 100%) !important;
+}
+.dark-shell main {
+  background: linear-gradient(135deg, rgba(53,29,29,.96), rgba(102,20,20,.92) 52%, rgba(192,78,42,.86)) !important;
+}
+.dark-shell .heart-environment {
+  filter: saturate(.8) hue-rotate(285deg) drop-shadow(0 0 45px rgba(192,78,42,.24));
+}
+

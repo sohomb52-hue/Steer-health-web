@@ -62,7 +62,6 @@ import { EvidenceRadar } from './components/EvidenceRadar';
 import { ContentBrief } from './types';
 import { propagateClaimChange } from './utils/impactAnalysis';
 import { HeartEnvironment } from './components/HeartEnvironment';
-import { StartGateway } from './components/StartGateway';
 
 export default function App() {
   const { user, idToken } = useAuth();
@@ -73,7 +72,6 @@ export default function App() {
   const [isInspectorOpen, setIsInspectorOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
-  const [isGatewayOpen, setIsGatewayOpen] = useState(true);
 
   // Persistence State
   const [papers, setPapers] = useState<PaperRecord[]>([]);
@@ -919,7 +917,6 @@ export default function App() {
   return (
     <div className="dark-shell min-h-screen bg-[#050505] text-[#F5F7F5] flex">
       <HeartEnvironment />
-      {isGatewayOpen && <StartGateway onEnter={() => setIsGatewayOpen(false)} />}
       {/* 01. LEFT: Persistent Desktop Navigation Rail (228px) */}
       <NavigationSidebar
         currentTab={currentTab}
