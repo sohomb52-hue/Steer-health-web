@@ -86,7 +86,7 @@
 @keyframes widget-float { 0%, 100% { transform: scale(.97) translateY(0); } 50% { transform: scale(.97) translateY(-4px); } }
 @keyframes heart-pulse { 0%, 100% { transform: rotate(45deg) scale(1); } 12% { transform: rotate(45deg) scale(1.045); } 24% { transform: rotate(45deg) scale(1); } }
 @keyframes particle-drift { to { transform: translate3d(-24px, 30px, 0); } }
-.dark-shell > .heart-environment ~ * { z-index: 1; }
+.dark-shell > .heart-environment ~ *:not(.start-gateway) { z-index: 1; }
 .dark-shell main { position: relative; }
 @media (max-width: 767px) {
   .heart-environment { inset: 56px 0 auto auto; width: 100vw; height: 46vh; opacity: .32; }
@@ -115,6 +115,78 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #B58777;
 }
+
+.dark-shell {
+  background: #F5EBDF !important;
+  color: #351D1D !important;
+}
+.dark-shell main {
+  background: linear-gradient(180deg, rgba(255,253,249,.96), rgba(248,242,235,.96)) !important;
+}
+.dark-shell aside, .dark-shell header {
+  background: rgba(53,29,29,.96) !important;
+  border-color: rgba(230,203,189,.32) !important;
+}
+.dark-shell .steer-card, .dark-shell .steer-card-interactive {
+  background: rgba(255,253,249,.9);
+  border-color: #E6CBBD;
+  box-shadow: 0 14px 28px rgba(53,29,29,.08), 0 1px 0 rgba(255,255,255,.7) inset;
+  transform: none;
+  animation: widget-float 8s ease-in-out infinite;
+}
+.dark-shell .steer-card-interactive:hover { transform: translateY(-5px); box-shadow: 0 20px 38px rgba(53,29,29,.14); }
+
+.start-gateway {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background: #351D1D;
+  color: #F5EBDF;
+  isolation: isolate;
+}
+.gateway-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .2;
+  background-image: linear-gradient(rgba(245,235,223,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(245,235,223,.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+  transform: perspective(700px) rotateX(58deg) scale(1.5) translateY(28%);
+  transform-origin: bottom;
+  animation: gateway-grid-drift 18s linear infinite;
+}
+.gateway-orbit { position: absolute; border: 1px solid rgba(230,203,189,.28); border-radius: 50%; filter: blur(.2px); pointer-events: none; }
+.gateway-orbit-one { width: 46vw; height: 46vw; right: -10vw; top: -20vw; box-shadow: 0 0 0 22px rgba(192,78,42,.04), 0 0 0 70px rgba(192,78,42,.035); animation: gateway-orbit 22s linear infinite; }
+.gateway-orbit-two { width: 30vw; height: 30vw; left: -10vw; bottom: -14vw; border-color: rgba(192,78,42,.34); animation: gateway-orbit 16s linear reverse infinite; }
+.gateway-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; max-width: 1240px; margin: 0 auto; padding: clamp(22px, 4vw, 56px); }
+.gateway-topline, .gateway-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #E6CBBD; }
+.gateway-mark, .gateway-status { display: inline-flex; align-items: center; gap: 8px; }
+.gateway-mark { color: #F5EBDF; }
+.gateway-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #C04E2A; box-shadow: 0 0 14px #C04E2A; animation: status-blink 2s ease-in-out infinite; }
+.gateway-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .6fr); gap: clamp(32px, 8vw, 120px); align-items: center; padding: 8vh 0 10vh; }
+.gateway-kicker { margin: 0 0 20px; color: #C04E2A; font: 700 11px 'JetBrains Mono', monospace; letter-spacing: .16em; }
+.gateway-copy h1 { margin: 0; color: #F5EBDF; font: 600 clamp(44px, 7vw, 92px)/.94 'Plus Jakarta Sans', sans-serif; letter-spacing: -.07em; }
+.gateway-copy h1 em { color: #C04E2A; font-family: 'Caveat', cursive; font-style: normal; font-weight: 500; letter-spacing: -.03em; }
+.gateway-description { max-width: 500px; margin: 28px 0 30px; color: #E6CBBD; font-size: 15px; line-height: 1.7; }
+.gateway-enter { display: inline-flex; align-items: center; gap: 18px; border: 0; padding: 15px 19px 15px 21px; background: #F5EBDF; color: #351D1D; font: 700 12px 'JetBrains Mono', monospace; letter-spacing: .02em; cursor: pointer; transition: transform .2s ease, background .2s ease; }
+.gateway-enter:hover { transform: translateY(-4px); background: #C04E2A; color: #F5EBDF; }
+.gateway-proof { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin-top: 22px; color: #B58777; font: 10px 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: .05em; }
+.gateway-proof svg { color: #C04E2A; }
+.gateway-divider { width: 22px; height: 1px; background: #B58777; opacity: .55; }
+.gateway-panel { align-self: end; border: 1px solid rgba(230,203,189,.34); padding: 22px; background: rgba(53,29,29,.36); backdrop-filter: blur(12px); box-shadow: 18px 18px 0 rgba(192,78,42,.14); animation: panel-float 7s ease-in-out infinite; }
+.gateway-panel-label, .gateway-panel-foot { color: #B58777; font: 10px 'JetBrains Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+.gateway-panel-label { padding-bottom: 15px; border-bottom: 1px solid rgba(230,203,189,.2); }
+.gateway-step { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(230,203,189,.14); color: #F5EBDF; font-size: 13px; }
+.gateway-step-index { color: #C04E2A; font: 11px 'JetBrains Mono', monospace; }
+.gateway-check { color: #C04E2A; }
+.gateway-step-line { width: 12px; height: 1px; background: #B58777; }
+.gateway-panel-foot { padding-top: 18px; line-height: 1.6; }
+@keyframes gateway-grid-drift { to { transform: perspective(700px) rotateX(58deg) scale(1.5) translateY(31%); } }
+@keyframes gateway-orbit { to { transform: rotate(360deg); } }
+@keyframes panel-float { 0%, 100% { transform: translateY(0) rotate(.4deg); } 50% { transform: translateY(-10px) rotate(-.4deg); } }
+@keyframes status-blink { 50% { opacity: .35; } }
+@media (max-width: 700px) { .gateway-hero { grid-template-columns: 1fr; padding: 12vh 0 8vh; } .gateway-panel { display: none; } .gateway-topline, .gateway-footer { font-size: 8px; } .gateway-status { display: none; } }
+@media (prefers-reduced-motion: reduce) { .gateway-grid, .gateway-orbit, .gateway-panel, .gateway-status-dot { animation: none; } }
 
 /* Steer Global Design Utility Classes */
 .steer-card {
