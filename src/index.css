@@ -240,3 +240,41 @@
   filter: saturate(.8) hue-rotate(285deg) drop-shadow(0 0 45px rgba(192,78,42,.24));
 }
 
+/* Editorial command-center redesign */
+.dark-shell {
+  background: #351D1D !important;
+}
+.dark-shell header {
+  min-height: 72px;
+  border-bottom: 1px solid rgba(230,203,189,.28) !important;
+  box-shadow: 0 12px 32px rgba(53,29,29,.18) !important;
+}
+.dark-shell main {
+  min-height: calc(100vh - 72px);
+  background:
+    radial-gradient(circle at 88% 8%, rgba(192,78,42,.22), transparent 26rem),
+    linear-gradient(135deg, #351D1D 0%, #661414 54%, #C04E2A 140%) !important;
+}
+.dark-shell main > div {
+  max-width: 1480px;
+}
+.dark-shell .steer-card,
+.dark-shell .steer-card-interactive {
+  border-radius: 20px;
+  border-color: rgba(230,203,189,.38);
+  box-shadow: 0 20px 55px rgba(28,12,12,.18), 0 1px 0 rgba(255,255,255,.1) inset;
+}
+.dark-shell .steer-card-interactive:hover {
+  border-color: #C04E2A;
+  transform: translateY(-6px);
+}
+.dark-shell button {
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.dark-shell button:hover:not(:disabled) {
+  box-shadow: 0 10px 22px rgba(28,12,12,.2);
+}
+.dark-shell aside {
+  box-shadow: 16px 0 40px rgba(28,12,12,.16) !important;
+}
+

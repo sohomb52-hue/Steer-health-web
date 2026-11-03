@@ -11,6 +11,7 @@ import {
   Sparkles,
   ShieldCheck,
   Check,
+  MoreHorizontal,
 } from 'lucide-react';
 import { ActiveTab } from './NavigationSidebar';
 import { PaperRecord } from '../types';
@@ -64,6 +65,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   const { user, signOutUser, loading: authLoading } = useAuth();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const tabInfo = TAB_TITLES[currentTab] || { title: 'Steer Evidence Studio', subtitle: '' };
 
@@ -150,6 +152,33 @@ export const TopBar: React.FC<TopBarProps> = ({
             <span className="font-medium">
               {sqlSyncStatus === 'syncing' ? 'Syncing...' : 'Synced'}
             </span>
+          </div>
+
+          {/* Workspace overflow menu */}
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen((open) => !open)}
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6CBBD] bg-[#FFFDF9] text-[#661414] transition-colors hover:bg-[#F8F2EB] cursor-pointer"
+              aria-label="Open workspace menu"
+              aria-expanded={menuOpen}
+            >
+              <MoreHorizontal className="h-4 w-4" />
+            </button>
+            {menuOpen && (
+              <div className="absolute right-0 top-10 z-50 w-52 rounded-2xl border border-[#E6CBBD] bg-[#FFFDF9] p-2 shadow-2xl">
+                <div className="px-3 pb-2 pt-1 text-[10px] font-mono uppercase tracking-[0.16em] text-[#B58777]">Workspace menu</div>
+                {['Keyboard shortcuts', 'Export workspace', 'Open command palette'].map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs font-medium text-[#351D1D] transition-colors hover:bg-[#F8F2EB] cursor-pointer"
+                  >
+                    {item}
+                    <ArrowRight className="h-3 w-3 text-[#C04E2A]" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Evidence Inspector Drawer Toggle */}
