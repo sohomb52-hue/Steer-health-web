@@ -19,6 +19,7 @@ import {
   ChevronDown,
   Sparkles,
   Radio,
+  X,
 } from 'lucide-react';
 
 export type ActiveTab =
@@ -67,6 +68,8 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
   isOpenMobile = false,
   onCloseMobile,
 }) => {
+  const [isMenuOpen] = React.useState(true);
+
   const handleNavClick = (tab: ActiveTab) => {
     onSelectTab(tab);
     if (onCloseMobile) onCloseMobile();
@@ -213,9 +216,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 w-[230px] bg-[#FAF6F0] border-r border-[#E6CBBD] flex flex-col justify-between transition-transform duration-200 ease-in-out md:translate-x-0 ${
-        isOpenMobile ? 'translate-x-0 shadow-2xl' : '-translate-x-full md:translate-x-0'
-      }`}
+      className="navigation-sidebar fixed inset-y-0 left-0 z-50 flex w-[min(88vw,360px)] translate-x-0 flex-col justify-between border-r border-[rgba(0,230,118,0.15)] bg-[#0B0D0B] shadow-2xl transition-transform duration-300 ease-out"
     >
       {/* Brand & Workspace Context - Scrollable Navigation */}
       <div className="flex flex-col overflow-y-auto min-h-0 flex-1">
@@ -232,13 +233,24 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
               STITCH
             </span>
           </div>
-          <span className="text-[9px] font-mono tracking-wider uppercase text-[#786A61] border border-[#E6CBBD] px-1.5 py-0.5 rounded-xs bg-[#FAF6F0] font-semibold">
-            STUDIO
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className="text-[9px] font-mono tracking-wider uppercase text-[#786A61] border border-[#E6CBBD] px-1.5 py-0.5 rounded-xs bg-[#FAF6F0] font-semibold">
+              STUDIO
+            </span>
+            <button
+              type="button"
+              aria-label="Close navigation menu"
+              aria-expanded="true"
+              onClick={() => onCloseMobile?.()}
+              className="rounded-md border border-[#E6CBBD] bg-[#FAF6F0] p-1 text-[#661414] transition-colors hover:bg-[#E6CBBD]"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
 
         {/* Active Source Card */}
-        <div className="px-3.5 py-3 border-b border-[#E6CBBD] bg-[#FFFDF9]/70">
+        <div hidden={!isMenuOpen} className="sidebar-content px-3.5 py-3 border-b border-[#E6CBBD] bg-[#FFFDF9]/70">
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[10px] font-mono uppercase tracking-wider text-[#786A61] font-semibold">
               ACTIVE SOURCE
@@ -325,7 +337,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
       </div>
 
       {/* Footer: Database Sync Status & Reset Demo */}
-      <div className="p-3 border-t border-[#E6CBBD] bg-[#FFFDF9] space-y-2">
+      <div hidden={!isMenuOpen} className="sidebar-content p-3 border-t border-[#E6CBBD] bg-[#FFFDF9] space-y-2">
         {/* Cloud SQL Connection Status */}
         <div className="flex items-center justify-between text-[10px] font-mono text-[#786A61]">
           <div className="flex items-center gap-1.5">
