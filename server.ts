@@ -2470,7 +2470,14 @@ async function startServer() {
     }
   } else {
     const vite = await createViteServer({
-      server: { middlewareMode: true, allowedHosts: true },
+      server: {
+        middlewareMode: true,
+        allowedHosts: true,
+        // The hosted preview proxy does not expose Vite's HMR socket. Disable
+        // the client to prevent repeated "WebSocket closed without opened"
+        // errors while keeping the middleware-backed preview stable.
+        hmr: false,
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);
