@@ -3,8 +3,8 @@
 @layer base {
   :root {
     --color-cream: #050505;
-    --color-rust: #39FF88;
-    --color-maroon: #00E676;
+    --color-rust: #86EFAC;
+    --color-maroon: #4D9F58;
     --color-ink: #F5F7F5;
     --color-clay: #A0AAA2;
     --color-blush: rgba(0,230,118,0.15);
@@ -44,11 +44,12 @@
 .dark-shell [class*="bg-[#661414]"], .dark-shell [class*="bg-[#C04E2A]"] { background: linear-gradient(135deg,#00E676,#0aa951) !important; color: #031109 !important; }
 .dark-shell [class*="text-[#661414]"], .dark-shell [class*="text-[#C04E2A]"], .dark-shell [class*="text-[#416C49]"] { color: #39FF88 !important; }
 .dark-shell [class*="rounded-xs"] { border-radius: 12px; }
-.dark-shell .steer-card, .dark-shell .steer-card-interactive { background: #141714; border-color: rgba(0,230,118,.15); box-shadow: 0 14px 40px rgba(0,0,0,.25); }
+.dark-shell .steer-card, .dark-shell .steer-card-interactive { background: rgba(20,23,20,.92); border-color: rgba(134,239,172,.2); box-shadow: 0 16px 34px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.025) inset; transform: scale(.97); animation: widget-float 7s ease-in-out infinite; backdrop-filter: blur(12px); }
 @media (prefers-reduced-motion: no-preference) { .dark-shell .steer-card-interactive:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(0,230,118,.09); } }
 
 .heart-environment {
   position: fixed;
+  isolation: isolate;
   z-index: 0;
   pointer-events: none;
   inset: 64px 0 0 auto;
@@ -79,7 +80,10 @@
 .heart-vessel-one { width: 34px; height: 152px; left: 184px; top: 20px; transform: rotate(28deg); }
 .heart-vessel-two { width: 28px; height: 126px; left: 236px; top: 36px; transform: rotate(-28deg); }
 .heart-glow { position: absolute; inset: 60px; border: 1px solid rgba(57,255,136,.26); border-radius: 50%; box-shadow: 0 0 80px rgba(0,230,118,.22), inset 0 0 40px rgba(0,230,118,.12); }
+.heart-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.heart-canvas canvas { display: block; width: 100%; height: 100%; }
 .heart-particles { position: absolute; inset: 8% 10%; opacity: .6; background-image: radial-gradient(circle, #39ff88 0 1px, transparent 1.5px); background-size: 72px 88px; animation: particle-drift 14s linear infinite; }
+@keyframes widget-float { 0%, 100% { transform: scale(.97) translateY(0); } 50% { transform: scale(.97) translateY(-4px); } }
 @keyframes heart-pulse { 0%, 100% { transform: rotate(45deg) scale(1); } 12% { transform: rotate(45deg) scale(1.045); } 24% { transform: rotate(45deg) scale(1); } }
 @keyframes particle-drift { to { transform: translate3d(-24px, 30px, 0); } }
 .dark-shell > .heart-environment ~ * { z-index: 1; }
