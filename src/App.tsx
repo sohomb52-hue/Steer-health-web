@@ -914,7 +914,15 @@ export default function App() {
   };
 
   return (
-    <div className="steer-app min-h-screen bg-[#050807] text-[#F5FFF8] flex">
+    <div className="steer-app relative min-h-screen bg-[#F7FAF8] text-[#123225] flex overflow-hidden">
+      <div aria-hidden="true" className="steer-float-scene pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="steer-orb steer-orb-one" />
+        <span className="steer-orb steer-orb-two" />
+        <span className="steer-orb steer-orb-three" />
+        <span className="steer-ring steer-ring-one" />
+        <span className="steer-ring steer-ring-two" />
+      </div>
+      <div className="relative z-10 flex min-h-screen w-full">
       {/* 01. LEFT: Persistent Desktop Navigation Rail (228px) */}
       <NavigationSidebar
         currentTab={currentTab}
@@ -1296,23 +1304,9 @@ export default function App() {
               />
             </div>
           )}
+          </div>
         </div>
       </div>
-
-      {/* Global Google Authentication Modal */}
-      <GoogleAuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-        sqlSyncStatus={sqlSyncStatus}
-      />
-
-      {/* Wow Factor: Live Clinical Trial & Patient Twin Simulator */}
-      <ClinicalTrialSimulator
-        isOpen={isSimulatorOpen}
-        onClose={() => setIsSimulatorOpen(false)}
-        activePaper={activePaper}
-        claims={currentPaperClaims}
-      />
     </div>
   );
 }

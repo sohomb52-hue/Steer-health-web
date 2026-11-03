@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --steer-void: #050807;
-  --steer-surface: #0a100d;
-  --steer-panel: rgba(13, 25, 19, 0.78);
-  --steer-panel-strong: #101c16;
-  --steer-border: rgba(112, 212, 151, 0.18);
-  --steer-border-strong: rgba(0, 230, 118, 0.42);
-  --steer-green: #00e676;
-  --steer-neon: #39ff88;
-  --steer-forest: #123d2b;
-  --steer-text: #f5fff8;
-  --steer-muted: #a1b5a9;
+  --steer-void: #f7faf8;
+  --steer-surface: #ffffff;
+  --steer-panel: rgba(255, 255, 255, 0.9);
+  --steer-panel-strong: #ffffff;
+  --steer-border: rgba(16, 96, 55, 0.14);
+  --steer-border-strong: rgba(16, 185, 92, 0.38);
+  --steer-green: #119b55;
+  --steer-neon: #45e890;
+  --steer-forest: #0c5c36;
+  --steer-text: #123225;
+  --steer-muted: #587267;
 }
 
 @layer base {
@@ -91,7 +91,63 @@ main { perspective: 1200px; }
 main > * { animation: steer-enter 520ms cubic-bezier(.2,.8,.2,1) both; }
 @keyframes steer-enter { from { opacity: 0; transform: translateY(14px) rotateX(1deg); } to { opacity: 1; transform: translateY(0) rotateX(0); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; scroll-behavior: auto !important; } }
+.steer-app {
+  isolation: isolate;
+}
 
+.steer-float-scene {
+  perspective: 900px;
+  z-index: 0;
+}
+
+.steer-orb,
+.steer-ring {
+  position: absolute;
+  display: block;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.steer-orb {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 25%, rgba(133, 255, 187, 0.8), rgba(22, 177, 91, 0.28) 42%, rgba(22, 177, 91, 0.02) 72%);
+  filter: blur(1px);
+  opacity: 0.5;
+  box-shadow: inset -18px -20px 34px rgba(4, 88, 45, 0.18), 0 24px 70px rgba(16, 185, 92, 0.16);
+  animation: steer-float 12s ease-in-out infinite;
+}
+
+.steer-orb-one { top: 8%; right: 8%; animation-delay: -2s; }
+.steer-orb-two { top: 58%; left: 18%; width: 5rem; height: 5rem; opacity: 0.34; animation-duration: 15s; animation-delay: -6s; }
+.steer-orb-three { bottom: -2rem; right: 30%; width: 12rem; height: 12rem; opacity: 0.24; animation-duration: 18s; animation-delay: -9s; }
+
+.steer-ring {
+  width: 14rem;
+  height: 5rem;
+  border: 1px solid rgba(17, 155, 85, 0.22);
+  border-radius: 50%;
+  transform: rotateX(62deg) rotateZ(-18deg);
+  animation: steer-ring-drift 16s ease-in-out infinite;
+}
+
+.steer-ring-one { top: 23%; left: 38%; }
+.steer-ring-two { bottom: 18%; right: 6%; width: 18rem; height: 6rem; animation-delay: -7s; }
+
+@keyframes steer-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-18px, 24px, 70px) scale(1.08); }
+}
+
+@keyframes steer-ring-drift {
+  0%, 100% { transform: rotateX(62deg) rotateZ(-18deg) translate3d(0, 0, 0); }
+  50% { transform: rotateX(66deg) rotateZ(-8deg) translate3d(20px, -18px, 40px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steer-orb, .steer-ring { animation: none; }
+}
 
 ::-webkit-scrollbar {
   width: 6px;
