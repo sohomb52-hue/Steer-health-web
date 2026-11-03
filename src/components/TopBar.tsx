@@ -69,7 +69,7 @@ export const TopBar: React.FC<TopBarProps> = ({
 
   return (
     <>
-      <header className="h-14 bg-[#FFFDF9] border-b border-[#E6CBBD] px-3 sm:px-5 flex items-center justify-between gap-3 shrink-0 sticky top-0 z-30 shadow-xs">
+      <header className="h-16 bg-[#0B0D0B]/90 border-b border-[rgba(0,230,118,0.15)] px-4 sm:px-7 flex items-center justify-between gap-3 shrink-0 sticky top-0 z-30 shadow-lg backdrop-blur-xl">
         {/* Left: Mobile Menu Toggle + Breadcrumbs + Active Paper Context */}
         <div className="flex items-center gap-3 min-w-0">
           {/* Mobile hamburger toggle */}

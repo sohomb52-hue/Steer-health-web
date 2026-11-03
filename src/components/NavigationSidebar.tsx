@@ -213,7 +213,7 @@ export const NavigationSidebar: React.FC<NavigationSidebarProps> = ({
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 w-[230px] bg-[#FAF6F0] border-r border-[#E6CBBD] flex flex-col justify-between transition-transform duration-200 ease-in-out md:translate-x-0 ${
+      className={`fixed inset-y-0 left-0 z-40 w-[230px] bg-[#0B0D0B] border-r border-[rgba(0,230,118,0.15)] flex flex-col justify-between transition-transform duration-300 ease-in-out md:translate-x-0 ${
         isOpenMobile ? 'translate-x-0 shadow-2xl' : '-translate-x-full md:translate-x-0'
       }`}
     >

@@ -2,48 +2,51 @@
 
 @layer base {
   :root {
-    --color-cream: #F5EBDF;
-    --color-rust: #C04E2A;
-    --color-maroon: #661414;
-    --color-ink: #351D1D;
-    --color-clay: #B58777;
-    --color-blush: #E6CBBD;
-    --color-softpaper: #F8F2EB;
-
-    /* Legacy mapping for backward compatibility */
-    --color-canvas: #F5EBDF;
-    --color-paper: #F8F2EB;
-    --color-burgundy: #661414;
-    --color-terracotta: #C04E2A;
-    --color-ink-secondary: #B58777;
-    --color-border: #E6CBBD;
-    --color-border-subtle: #F0E2D8;
-    --color-approval: #416C49;
-    --color-highlight: #F7E9DE;
+    --color-cream: #050505;
+    --color-rust: #39FF88;
+    --color-maroon: #00E676;
+    --color-ink: #F5F7F5;
+    --color-clay: #A0AAA2;
+    --color-blush: rgba(0,230,118,0.15);
+    --color-softpaper: #0B0D0B;
+    --color-canvas: #050505;
+    --color-paper: #141714;
+    --color-burgundy: #00E676;
+    --color-terracotta: #39FF88;
+    --color-ink-secondary: #A0AAA2;
+    --color-border: rgba(0,230,118,0.15);
+    --color-border-subtle: rgba(255,255,255,0.08);
+    --color-approval: #39FF88;
+    --color-highlight: #17452C;
   }
 
   body {
-    background-color: var(--color-cream);
-    color: var(--color-ink);
+    background-color: #050505;
+    color: #F5F7F5;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4, .font-serif {
-    font-family: 'Fraunces', Georgia, serif;
-    font-optical-sizing: auto;
-  }
-
-  .font-handwritten {
-    font-family: 'Caveat', cursive;
-  }
-
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-  }
+  h1, h2, h3, h4, .font-serif { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+  .font-handwritten { font-family: 'Caveat', cursive; }
+  code, pre, .font-mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; }
 }
+
+.dark-shell { background: #050505 !important; color: #F5F7F5 !important; }
+.dark-shell aside, .dark-shell header { background: rgba(11,13,11,.92) !important; border-color: rgba(0,230,118,.15) !important; backdrop-filter: blur(18px); }
+.dark-shell main { background: radial-gradient(circle at 80% 0%, rgba(0,230,118,.06), transparent 32rem), #050505; }
+.dark-shell button, .dark-shell select { border-radius: 12px; }
+.dark-shell [class*="bg-[#FFFDF9]"], .dark-shell [class*="bg-[#FAF6F0]"], .dark-shell [class*="bg-[#F8F2EB]"], .dark-shell [class*="bg-[#F5EFE6]"] { background-color: #141714 !important; }
+.dark-shell [class*="border-[#E6CBBD]"], .dark-shell [class*="border-[#F0E2D8]"] { border-color: rgba(0,230,118,.15) !important; }
+.dark-shell [class*="text-[#351D1D]"], .dark-shell [class*="text-[#391E1D]"] { color: #F5F7F5 !important; }
+.dark-shell [class*="text-[#786A61]"], .dark-shell [class*="text-[#B58777]"] { color: #A0AAA2 !important; }
+.dark-shell [class*="bg-[#661414]"], .dark-shell [class*="bg-[#C04E2A]"] { background: linear-gradient(135deg,#00E676,#0aa951) !important; color: #031109 !important; }
+.dark-shell [class*="text-[#661414]"], .dark-shell [class*="text-[#C04E2A]"], .dark-shell [class*="text-[#416C49]"] { color: #39FF88 !important; }
+.dark-shell [class*="rounded-xs"] { border-radius: 12px; }
+.dark-shell .steer-card, .dark-shell .steer-card-interactive { background: #141714; border-color: rgba(0,230,118,.15); box-shadow: 0 14px 40px rgba(0,0,0,.25); }
+@media (prefers-reduced-motion: no-preference) { .dark-shell .steer-card-interactive:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(0,230,118,.09); } }
+
 
 ::selection {
   background-color: #E6CBBD;
